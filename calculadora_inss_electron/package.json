@@ -1,0 +1,39 @@
+{
+    "name": "inss",
+    "version": "0.0.1",
+    "description": "Calculadora de INSS",
+    "main": "main.js",
+    "author": {
+        "name": "Joao Antonio Cabral",
+        "email": "joaomunizshura@gmail.com"
+    },
+    "license": "MIT",
+    "homepage": "https://github.com/joaocabraldev/",
+    "scripts": {
+        "start": "electron .",
+        "test": "mocha",
+        "test-coverage": "nyc mocha",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder"
+    },
+    "build": {
+        "appId": "br.com.joaocabral.inss",
+        "productName": "calculadora_inss",
+        "copyright": "Copyright © 2020 ${author}",
+        "linux": {
+            "target": ["AppImage", "deb"],
+            "icon": "./src/icons/310x310.png",
+            "category": "tools"
+        },
+        "win": {
+            "target": "nsis",
+            "icon": "./src/icons/310x310.png"
+        }
+    },
+    "devDependencies": {
+        "electron": "^7.1.10",
+        "electron-builder": "^22.2.0",
+        "mocha": "^7.0.0",
+        "nyc": "^15.0.0"
+    }
+}
