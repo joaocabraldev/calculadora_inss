@@ -1,2 +1,3 @@
-# calculadora_inss
-Sistemas de Calculadora para INSS
+# Calculadora INSS
+Sistemas de Calculadora para INSS.
+Dividido em sistema com Electron e Java
