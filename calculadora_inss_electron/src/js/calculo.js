@@ -1,4 +1,11 @@
+/**
+ * Constante de Cálculos para o sistema.
+ */
 const calculo = {
+    /**
+     * Resultados do Sistema.
+     * Inclui o salário, alíquota, faixa e o valor.
+     */
     resultado: {
         salario: 0,
         aliquota: 0,
@@ -6,6 +13,11 @@ const calculo = {
         valor: 0,
     },
 
+    /**
+     * Arrrays de Faixas de da Tabela do INSS.
+     * faixas[0] corresponde a INSS antigo
+     * faixas[1] corresponde a INSS novo
+     */
     faixas: [
         [
             {
@@ -56,6 +68,11 @@ const calculo = {
         ]
     ],
 
+    /**
+     * Seleciona a Faixa do INSS conforme salário.
+     * @param salario Salário a ser analisado.
+     * @return Retorna a Faixa seleciona com base no salário informado.
+     */
     selecionaFaixa: (salario) => {
         let faixaSelecionada = 0;
 
@@ -69,6 +86,11 @@ const calculo = {
         return faixaSelecionada;
     },
 
+    /**
+     * Seleciona a Nova Faixa do INSS conforme salário.
+     * @param salario Salário a ser analisado.
+     * @return Retorna a Faixa seleciona com base no salário informado.
+     */
     selecionaFaixaNova: (salario) => {
         let faixaSelecionada = 0;
 
@@ -82,14 +104,31 @@ const calculo = {
         return faixaSelecionada;
     },
 
+    /**
+     * Prepara o valor para ser calculado.
+     * Troca as vírgulas por pontos.
+     * @param valor Valor a ser preparado.
+     * @return Valor preparado para cálculo.
+     */
     preparaValorCalculo: (valor) => {
         return valor.replace(',', '.');
     },
 
+    /**
+     * Calcula a alíquota real com base no salário e valor calculado.
+     * Utiliza regra de três.
+     * @param salario Salário a ser utilizado no cálculo.
+     * @param valor Valor a ser utilizado no cálculo.
+     * @return Alíquota real com base nos parâmetros informados.
+     */
     calculaAliquotaReal: (salario, valor) => {
         return valor * 100 / salario;
     },
 
+    /**
+     * Limpa os valores de cálculo.
+     * Utilizado para evitar valores antigos em novos cálculos.
+     */
     limpaValores: () => {
         calculo.resultado.salario = 0;
         calculo.resultado.valor = 0;
@@ -97,6 +136,11 @@ const calculo = {
         calculo.resultado.faixa = 0;
     },
 
+    /**
+     * Calcula INSS com base no salário informado.
+     * @param salario Salário para o cálculo do INSS.
+     * @return Cálculo do INSS com Salário, valor, aliquota e faixa.
+     */
     calculaINSS: (salario) => {
         calculo.limpaValores();
         const salarioPreparado = calculo.preparaValorCalculo(salario);
@@ -118,6 +162,12 @@ const calculo = {
         return calculo.resultado;
     },
 
+    /**
+     * Calcula INSS com base no salário informado.
+     * Este utiliza nova tabela do INSS.
+     * @param salario Salário para o cálculo do INSS.
+     * @return Cálculo do INSS com Salário, valor, aliquota e faixa.
+     */
     calculaNovoINSS: (salario) => {
         calculo.limpaValores();
 

@@ -21,14 +21,29 @@ const visual = {
         return inss;
     },
 
+    /**
+     * Obtém o valor do salário do input na tela.
+     * @return Salário informado na tela.
+     */
     obtemValorSalario: () => {
         return document.getElementById('txtSalario').value;
     },
 
+    /**
+     * Prepara o valor para exibição na tela.
+     * Converte valor em String e troca ponto por vírgula.
+     * @param valor Valor a ser preparado.
+     */
     preparaValorExibicao: (valor) => {
         return valor.toString().replace('.', ',');
     },
 
+    /**
+     * Exibe os valores recebidos na tela.
+     * Prepara os valores para exibição.
+     * @param valores Objeto com valores a serem exibidos.
+     * Espera salario, aliquota e valor.
+     */
     exibeValores: (valores) => {
         const salario = visual.preparaValorExibicao(valores.salario);
         const aliquota = visual.preparaValorExibicao(valores.aliquota.toString());
