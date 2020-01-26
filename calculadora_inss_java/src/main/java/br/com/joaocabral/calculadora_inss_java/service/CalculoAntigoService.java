@@ -6,22 +6,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Serviço de Cálculos.
+ * Serviço de Cálculos do INSS Antigo.
  * @author João Antônio Cabral.
  */
-public class CalculoService {
+public class CalculoAntigoService {
     
-    private static List<Faixa> FAIXASANTIGAS;
+    private static List<Faixa> FAIXAS;
 
-    public CalculoService() {
-        FAIXASANTIGAS = preencheFaixas();
+    /**
+     * Construtor padrão de CalculoAntigoService.
+     * Preenche a lista de faixas.
+     */
+    public CalculoAntigoService() {
+        FAIXAS = preencheFaixas();
     }
     
-    
+    /**
+     * Seleciona a faixa com base no salário.
+     * @param salario Salário a ser testado.
+     * @return Faixa conforme salário informado.
+     */
     public Faixa selecionarFaixa(final Double salario) {
         Faixa faixaSelecionada = null;
 
-        for (final Faixa faixa : FAIXASANTIGAS) {
+        for (final Faixa faixa : FAIXAS) {
             if (salario >= faixa.vinicial && salario <= faixa.vfinal) {
                 faixaSelecionada = faixa;
             }
@@ -30,6 +38,11 @@ public class CalculoService {
         return faixaSelecionada;
     }
 
+    /**
+     * Calcula o valor do INSS conforme salário.
+     * @param salario Salário a ser calculado.
+     * @return Valor do INSS conforme salário.
+     */
     public Resultado calcularINSS(final Double salario) {
         final Resultado resultado = new Resultado();
         final Faixa faixa = selecionarFaixa(salario);
@@ -48,11 +61,20 @@ public class CalculoService {
         return resultado;
     }
 
+    /**
+     * Prepara o salário para ser calculado.
+     * @param salario Salário a ser preparado.
+     * @return Salário preparado.
+     */
     public Double preparaSalarioCalculo(final String salario) {
         final String salarioPreparado = salario.replace(",", ".");
         return Double.valueOf(salarioPreparado);
     }
 
+    /**
+     * Preenche as faixas com valores padrão.
+     * @return Faixa com valores padrão.
+     */
     private List<Faixa> preencheFaixas() {
         final List<Faixa> faixas = new ArrayList<>();
         

@@ -8,6 +8,11 @@ import br.com.joaocabral.calculadora_inss_java.view.MainView;
  */
 public class Main {
     
+    /**
+     * Método executável da classe Main.
+     * Instancia a MainView e torna visível.
+     * @param args Argumentos do programa. Ignorados neste caso.
+     */
     public static void main(String[] args) {
         MainView view = new MainView();
         view.setLocationRelativeTo(null);
