@@ -43,8 +43,13 @@ public class CalculoNovoService {
      * @param salario Salário a ser calculado.
      * @return Valor do INSS conforme salário.
      */
-    public Resultado calcularINSS(final Double salario) {
+    public Resultado calcularINSS(Double salario) {
         final Resultado resultado = new Resultado();
+        
+        if (salario > FAIXAS.get(3).vfinal) {
+            salario = FAIXAS.get(3).vfinal;
+        }
+        
         final Faixa faixaSelecionada = selecionarFaixa(salario);
 
         for (Faixa faixa : FAIXAS) {
@@ -99,7 +104,6 @@ public class CalculoNovoService {
         faixas.add(new Faixa(1039.01, 2089.60, 9.0, 2));
         faixas.add(new Faixa(2089.61, 3134.40, 12.0, 3));
         faixas.add(new Faixa(3134.41, 6101.06, 14.0, 4));
-        faixas.add(new Faixa(6101.07, 999999.99, 14.0, 5));
         
         return faixas;
     }

@@ -14,7 +14,10 @@ public class Resultado {
     public Double valor;
 
     public Resultado() {
-    
+        this.salario = 0.0;
+        this.aliquota = 0.0;
+        this.faixa = 0;
+        this.valor = 0.0;
     }
 
     public Resultado(Double salario, Double aliquota, Integer faixa, Double valor) {
