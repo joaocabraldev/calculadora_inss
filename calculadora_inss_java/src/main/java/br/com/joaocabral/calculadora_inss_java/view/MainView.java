@@ -84,20 +84,24 @@ public class MainView extends javax.swing.JFrame {
 
         rbINSSAntigo.setBackground(new java.awt.Color(211, 211, 211));
         rbGroupINSS.add(rbINSSAntigo);
+        rbINSSAntigo.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         rbINSSAntigo.setForeground(new java.awt.Color(1, 1, 1));
         rbINSSAntigo.setSelected(true);
         rbINSSAntigo.setText("INSS Antigo");
 
         rbINSSNovo.setBackground(new java.awt.Color(211, 211, 211));
         rbGroupINSS.add(rbINSSNovo);
+        rbINSSNovo.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         rbINSSNovo.setForeground(new java.awt.Color(0, 0, 0));
         rbINSSNovo.setText("INSS Novo");
 
         lblSalario.setBackground(new java.awt.Color(211, 211, 211));
+        lblSalario.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         lblSalario.setForeground(new java.awt.Color(0, 0, 0));
         lblSalario.setText("Salário:");
 
         txtSalario.setBackground(new java.awt.Color(255, 255, 255));
+        txtSalario.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         txtSalario.setForeground(new java.awt.Color(0, 0, 0));
         txtSalario.setMaximumSize(new java.awt.Dimension(62, 30));
         txtSalario.setMinimumSize(new java.awt.Dimension(62, 30));
@@ -109,6 +113,7 @@ public class MainView extends javax.swing.JFrame {
         });
 
         btnCalcular.setBackground(new java.awt.Color(24, 186, 254));
+        btnCalcular.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         btnCalcular.setForeground(new java.awt.Color(255, 255, 255));
         btnCalcular.setText("Calcular");
         btnCalcular.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +123,7 @@ public class MainView extends javax.swing.JFrame {
         });
 
         lblResultado.setBackground(new java.awt.Color(211, 211, 211));
+        lblResultado.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         lblResultado.setForeground(new java.awt.Color(0, 0, 0));
         lblResultado.setText("Resultado");
 
@@ -137,7 +143,7 @@ public class MainView extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(lblSalario)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtSalario, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)))
+                                .addComponent(txtSalario, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCalcular))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
@@ -178,7 +184,7 @@ public class MainView extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         pack();
