@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cálculo INSS</title>
 
+    <link rel="stylesheet" href="css/w3.css" />
     <link rel="stylesheet" href="css/style.css" />
 
     <script src="js/visual.js"></script>
@@ -16,47 +17,58 @@
 <body>
     <main>
 
-        <header>
+        <header class="w3-container w3-blue">
             <h1>Ferramentas INSS</h1>
         </header>
 
-        <nav id="menu">
-            <a>Cálculo INSS</a>
+        <nav id="menu" class="w3-bar w3-blue">
+            <a class="w3-bar-item w3-button">Cálculo INSS</a>
         </nav>
 
-        <section id="calculo">
+        <div class="w3-container">
+            <div class="w3-row">
+                <h3 class="w3-col s12 m12 l12">Cálculo INSS</h3>
+            </div>
 
-            <article>
-                <h3>Cálculo INSS</h3>
-            </article>
-
-            <article>
-                <label for="rbINSS">Tipo de Cálculo:</label>
+            <div class="w3-row">
                 
-                <input id="rbINSSAntigo" name="rbINSS" 
-                    value="1" type="radio" />
-                INSS Antigo (Jan 2020)
+                <div class="w3-col s12 m4 l3">
+                    <input id="rbINSSAntigo" name="rbINSS"
+                        class="w3-radio" 
+                        value="1" type="radio" />
+                    <label>INSS Antigo (Jan 2020)</label>
+                </div>
 
-                <input id="rbINSSNovo" name="rbINSS" 
-                    value="2" type="radio" />
-                INSS Novo (Mar 2020)
-            </article>
+                <div class="w3-col s12 m4 l3">
+                    <input id="rbINSSNovo" name="rbINSS" 
+                        class="w3-radio"
+                        value="2" type="radio" />
+                    <label>INSS Novo (Mar 2020)</label>
+                </div>
+                
+            </div>
+                
+            <div class="w3-row">
+                <div class="w3-col s12 m4 l3 margin-10">
+                    <input id="txtSalario" 
+                        class="w3-input" 
+                        placeholder="Insira o salário"
+                        type="number" />
+                </div>
+                <div class="w3-col s12 m4 l3">
+                    <button id="btnCalcular" class="w3-btn w3-blue margin-10"
+                        onclick="app.calcular()">Calcular</button>
+                </div>
 
-            <article>
-                <label for="txtSalario">Salário:</label>
-                <input id="txtSalario" type="text" />
-                <button id="btnCalcular" class="btn"
-                    onclick="app.calcular()">Calcular</button>
-            </article>
+            </div>
 
-            <article id="resultado">
+            <div id="resultado" class="margin-10">
                 <label for="spanCalculo">Cálculo:</label>
                 R$ <span id="spanSalario"></span> * 
                 <span id="spanAliquota"></span>% = 
                 R$ <span id="spanCalculo"></span>
-            </article>
-
-        </section> <!-- calculo -->
+            </div>
+        </div> <!-- container -->
 
     </main>
 </body>
