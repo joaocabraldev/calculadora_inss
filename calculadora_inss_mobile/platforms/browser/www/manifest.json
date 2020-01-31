@@ -1,11 +1,17 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "HelloCordova",
-  "short_name": "HelloCordova",
-  "version": "io.cordova.hellocordova",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "author": "Apache Cordova Team",
-  "icons": [],
+  "name": "CalculadoraINSS",
+  "short_name": "CalculadoraINSS",
+  "version": "br.com.joaocabral.calculadorainss",
+  "description": "Sistema de Calculadora INSS usando Cordova.",
+  "author": "João Antônio Cabral",
+  "icons": [
+    {
+      "src": "www/icons/icon.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    }
+  ],
   "start_url": "index.html"
 }
