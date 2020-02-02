@@ -2,5 +2,5 @@
 Sistemas de Calculadora para INSS.
 Dividido em sistema com Cordova e Java
 
-* [Sistema Cordova](calculadora_inss-cordova/README.md)
-* [Sistema Java Swing](calculadora_inss_java/README.md)
+* [Sistema Cordova](https://github.com/joaocabraldev/calculadora_inss/calculadora_inss-cordova)
+* [Sistema Java Swing](https://github.com/joaocabraldev/calculadora_inss/calculadora_inss_java)

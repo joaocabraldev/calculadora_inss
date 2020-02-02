@@ -5,4 +5,4 @@ Gera aplicativo para:
 * Android
 * Electron
 
-[Página Inicial](../README.md)
+[Página Inicial](https://github.com/joaocabraldev/calculadora_inss)
