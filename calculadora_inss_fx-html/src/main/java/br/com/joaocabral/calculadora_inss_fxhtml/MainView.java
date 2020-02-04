@@ -23,10 +23,11 @@ public class MainView extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Calculadora INSS FX-HTML");
         WebView webView = new WebView();
+		webView.setCache(false);
         WebEngine engine = webView.getEngine();
 
         String indexFile = readFile("/web/index.html");
-        
+
         engine.loadContent(indexFile, "text/html");
 
         VBox vBox = new VBox(webView);
