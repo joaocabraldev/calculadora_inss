@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.joaocabral</groupId>
 	<artifactId>calculadora_inss_fx-html</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<name>Calculadora INSS FX HTML</name>
 	<description>Calculadora paraa INSS usando Java FX renderizando HTML</description>
 

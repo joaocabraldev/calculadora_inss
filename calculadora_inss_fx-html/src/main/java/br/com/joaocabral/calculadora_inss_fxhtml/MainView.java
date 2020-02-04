@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
+import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
@@ -22,10 +23,11 @@ public class MainView extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Calculadora INSS FX-HTML");
         WebView webView = new WebView();
+        WebEngine engine = webView.getEngine();
 
         String indexFile = readFile("/web/index.html");
         
-        webView.getEngine().loadContent(indexFile, "text/html");
+        engine.loadContent(indexFile, "text/html");
 
         VBox vBox = new VBox(webView);
         Scene scene = new Scene(vBox, 960, 600);
@@ -43,7 +45,7 @@ public class MainView extends Application {
         StringBuffer sb = new StringBuffer();
         String line;
         while ((line = br.readLine()) != null) {
-          sb.append(line);
+          sb.append(new String(line.getBytes("UTF-8")));
         }
         br.close();
         isr.close();
