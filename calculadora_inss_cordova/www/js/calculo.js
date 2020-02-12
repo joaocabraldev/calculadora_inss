@@ -46,7 +46,7 @@ const calculo = {
         [
             {
                 vinicial: 0,
-                vfinal: 1039.00,
+                vfinal: 1045.00,
                 aliquota: 7.5,
                 numero: 1
             }, {

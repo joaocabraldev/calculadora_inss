@@ -18,11 +18,11 @@ public class CalculoNovoServiceTest {
     public void testSelecionarFaixa() {
         CalculoNovoService instance = new CalculoNovoService();
         
-        Faixa expResult1 = new Faixa(0.0, 1039.00, 7.5, 1);
+        Faixa expResult1 = new Faixa(0.0, 1045.00, 7.5, 1);
         Faixa result1 = instance.selecionarFaixa(1000.0);
         assertEquals(expResult1, result1);
         
-        Faixa expResult2 = new Faixa(1039.01, 2089.60, 9.0, 2);
+        Faixa expResult2 = new Faixa(1045.01, 2089.60, 9.0, 2);
         Faixa result2 = instance.selecionarFaixa(2000.0);
         assertEquals(expResult2, result2);
         
