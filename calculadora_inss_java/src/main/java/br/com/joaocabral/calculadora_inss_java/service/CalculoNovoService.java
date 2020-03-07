@@ -100,8 +100,8 @@ public class CalculoNovoService {
     private List<Faixa> preencheFaixas() {
         final List<Faixa> faixas = new ArrayList<>();
         
-        faixas.add(new Faixa(0.0, 1039.00, 7.5, 1));
-        faixas.add(new Faixa(1039.01, 2089.60, 9.0, 2));
+        faixas.add(new Faixa(0.0, 1045.00, 7.5, 1));
+        faixas.add(new Faixa(1045.01, 2089.60, 9.0, 2));
         faixas.add(new Faixa(2089.61, 3134.40, 12.0, 3));
         faixas.add(new Faixa(3134.41, 6101.06, 14.0, 4));
         

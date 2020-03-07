@@ -1,0 +1,24 @@
+{
+  "name": "Calculadora INSS PWA",
+  "short_name": "calc_inss",
+  "start_url": "/calculadora_inss_pwa/index.html",
+  "display": "standalone",
+  "background_color": "#000",
+  "theme_color": "#2196F3",
+  "orientation":"portrait",
+  "icons": [
+    {
+      "src": "/calculadora_inss_pwa/icons/127x127.png",
+      "sizes": "127x127",
+      "type": "image/png"
+    },{
+        "src": "/calculadora_inss_pwa/icons/255x256.png",
+        "sizes": "255x256",
+        "type": "image/png"
+    },{
+        "src": "/calculadora_inss_pwa/icons/512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    }
+  ]
+}
