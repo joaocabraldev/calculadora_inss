@@ -1,4 +1,4 @@
-const version = '0.0.3';
+const version = '0.0.4';
 const cacheName = `appcache-${version}`;
 
 self.addEventListener('install', function(e) {

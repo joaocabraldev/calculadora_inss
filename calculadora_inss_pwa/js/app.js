@@ -11,6 +11,7 @@ const app = {
     app.iniciaServiceWorker();
     app.preparaNavegacao();
     app.inicializaBotaoInstalacao();
+    app.preparaInputText();
   },
 
   /**
@@ -60,7 +61,16 @@ const app = {
           deferredPrompt = null;
         });
       });
+    });
+  },
 
+  preparaInputText: () => {
+    const txtSalario = document.getElementById('txtSalario');
+    txtSalario.addEventListener('keydown', (e) => {
+      e.preventDefault();
+      if (e.key == 'Enter') {
+        app.calcular();
+      }
     });
   },
 
