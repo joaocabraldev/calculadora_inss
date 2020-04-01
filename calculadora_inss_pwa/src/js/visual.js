@@ -71,14 +71,18 @@ const visual = {
   exibeValores: (valores) => {
     const salario = visual.preparaValorExibicao(valores.salario);
     const aliquota = visual.preparaValorExibicao(valores.aliquota.toString());
+    const aliquotaReal = visual.preparaValorExibicao(valores.aliquotaReal.toString());
+   
     const resultadoTemp = valores.valor
         .toString()
         .match(/^-?\d+(?:\.\d{0,2})?/)[0];
+    
     const resultado = visual.preparaValorExibicao(resultadoTemp);
 
     const elResultado = document.getElementById('resultado');
     elResultado.innerHTML = `
-            Cálculo: R$${salario} * ${aliquota}% = R$${resultado}
+            Cálculo: R$${salario} * ${aliquota}% = R$${resultado} <br /><br />
+            Alíquota Real: ${aliquotaReal}
         `;
     elResultado.style.display = 'block';
   },
