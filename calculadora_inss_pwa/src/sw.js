@@ -1,4 +1,4 @@
-const version = '0.0.4';
+const version = '0.0.5';
 const cacheName = `appcache-${version}`;
 
 self.addEventListener('install', function(e) {
@@ -28,9 +28,9 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   event.respondWith(
       caches.open(cacheName)
-      .then((cache) => cache.match(event.request, {ignoreSearch: true}))
-      .then((response) => {
-        return response || fetch(event.request);
-      }),
+          .then((cache) => cache.match(event.request, {ignoreSearch: true}))
+          .then((response) => {
+            return response || fetch(event.request);
+          }),
   );
 });

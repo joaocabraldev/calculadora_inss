@@ -9,6 +9,7 @@ const calculo = {
   resultado: {
     salario: 0,
     aliquota: 0,
+    aliquotaReal: 0,
     faixa: 0,
     valor: 0,
   },
@@ -35,8 +36,7 @@ const calculo = {
         vfinal: 6101.06,
         aliquota: 11,
         numero: 3,
-      },
-      {
+      }, {
         vinicial: 6101.07,
         vfinal: 99999999,
         aliquota: 11,
@@ -113,7 +113,24 @@ const calculo = {
    * @return {number} Valor preparado para cálculo.
    */
   preparaValorCalculo: (valor) => {
-    return valor.replace(',', '.');
+    return parseFloat(valor.toString().replace(',', '.'));
+  },
+
+  /**
+   * Corta as casas decimais em duas casas.
+   * @param {number} valor Valor a ser cortado.
+   * @return {number} Valor somente com duas casas decimais.
+   */
+  cortarCasasDecimais: (valor) => {
+    const valores = valor.toString().split('.');
+    let resultado = 0;
+    if (valores[1]) {
+        resultado = `${valores[0]}.${valores[1].substr(0, 2)}`;
+    } else {
+        resultado = valores[0];
+    }
+
+    return parseFloat(resultado);
   },
 
   /**
@@ -153,11 +170,13 @@ const calculo = {
     if (faixa.numero < 4) {
       calculo.resultado.valor = salarioPreparado * faixa.aliquota / 100;
       calculo.resultado.aliquota = faixa.aliquota;
+      calculo.resultado.aliquotaReal = faixa.aliquota;
       calculo.resultado.faixa = faixa.numero;
     } else {
       calculo.resultado.salario = faixa.vinicial;
       calculo.resultado.valor = faixa.vinicial * faixa.aliquota / 100;
       calculo.resultado.aliquota = faixa.aliquota;
+      calculo.resultado.aliquotaReal = faixa.aliquota;
       calculo.resultado.faixa = faixa.numero;
     }
 
@@ -178,6 +197,7 @@ const calculo = {
     }
 
     const faixaSelecionada = calculo.selecionaFaixaNova(salario);
+    let valorParcial = 0;
 
     calculo.faixas[1].forEach((faixa) => {
       if (faixa.numero <= faixaSelecionada.numero) {
@@ -187,12 +207,21 @@ const calculo = {
         } else {
           diferenca = salario - faixa.vinicial;
         }
-        calculo.resultado.valor += diferenca * faixa.aliquota / 100;
+
+        let diferencaParcial = diferenca * faixa.aliquota / 100;
+
+        valorParcial += calculo.cortarCasasDecimais(diferencaParcial);
+        
+        calculo.resultado.valor = valorParcial.toFixed(2);
 
         calculo.resultado.salario = salario;
-        calculo.resultado.aliquota = calculo
-            .calculaAliquotaReal(salario,
-                calculo.resultado.valor);
+        calculo.resultado.aliquota = faixa.aliquota;
+
+        calculo.resultado.aliquotaReal = calculo.calculaAliquotaReal(
+          salario,
+          calculo.resultado.valor
+        );
+        
         calculo.resultado.faixa = faixa.numero;
       }
     });
@@ -200,3 +229,5 @@ const calculo = {
     return calculo.resultado;
   },
 };
+
+module.exports = calculo;
