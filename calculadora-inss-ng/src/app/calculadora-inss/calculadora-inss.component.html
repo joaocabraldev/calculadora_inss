@@ -1,0 +1,27 @@
+<div id="calculo" class="w3-container">
+  <div class="w3-row">
+    <h3 class="w3-col s12 m12 l12">Cálculo INSS</h3>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-col s12 m4 l3 margin-10">
+      <input id="txtSalario" #txtSalario class="w3-input"
+        placeholder="Insira o salário"
+        type="number" [(ngModel)]="salario" (keyup.enter)="calcular()" />
+    </div>
+    <div class="w3-col s12 m4 l3">
+      <button id="btnCalcular" class="w3-btn w3-blue margin-10"
+        (click)="calcular()">Calcular</button>
+    </div>
+
+  </div>
+
+  <div id="resultado" [hidden]="!mostraResultado" class="margin-10">
+    <span>
+      Cálculo:
+      {{ resultado.salario | currency:"BRL" }}
+      * {{ resultado.aliquota }}% = {{ resultado.valor | currency:"BRL" }}
+    </span>
+  </div>
+
+</div> <!-- calculo -->
