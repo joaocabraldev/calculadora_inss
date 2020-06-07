@@ -16,8 +16,10 @@
     <link rel="stylesheet" href="css/w3.css" />
     <link rel="stylesheet" href="css/style.css" />
 
+    <script src="js/util.js"></script>
     <script src="js/visual.js"></script>
-    <script src="js/calculo.js"></script>
+    <script src="js/inss-antigo.js"></script>
+    <script src="js/inss-novo.js"></script>
     <script src="js/app.js"></script>
 </head>
 <body>
@@ -66,7 +68,7 @@
                 </div>
                 <div class="w3-col s12 m4 l3">
                     <button id="btnCalcular" class="w3-btn w3-blue margin-10"
-                        onclick="app.calcular()">Calcular</button>
+                        onclick="App.calcular()">Calcular</button>
                 </div>
 
             </div>
@@ -116,7 +118,7 @@
     </main>
 
     <script>
-        new App();
+        App.init()
     </script>
 
 </body>

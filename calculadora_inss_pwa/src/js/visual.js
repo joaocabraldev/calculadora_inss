@@ -1,36 +1,36 @@
 /**
  * Constante para a parte Visual do sistema.
  */
-class Visual {
+const Visual = {
 
     /**
      * Mostra a parte do Cálculo.
      */
-    mostraCalculo() {
+    mostraCalculo: function() {
         const calculo = document.getElementById('calculo')
         calculo.style.display = 'block'
 
         const tabela = document.getElementById('tabela')
         tabela.style.display = 'none'
-    }
+    },
 
     /**
      * Mostra a parte da Tabela INSS.
-    */
-    mostraTabela() {
+     */
+    mostraTabela: function() {
         const calculo = document.getElementById('calculo')
         calculo.style.display = 'none'
 
         const tabela = document.getElementById('tabela')
         tabela.style.display = 'block'
-    }
+    },
 
     /**
      * Obtém o tipo de cálculo conforme selecionado
      * na tela usando os radiobuttons com name rbINSS.
      * @return {number} Tipo de Cálculo. 1 - Antigo, 2 - Novo
      */
-    obtemTipoCalculo() {
+    obtemTipoCalculo: function() {
         const rbsINSS = document.getElementsByName('rbINSS')
         let inss = 0
 
@@ -42,15 +42,15 @@ class Visual {
         }
 
         return inss
-    }
+    },
 
     /**
      * Obtém o valor do salário do input na tela.
      * @return {string} Salário informado na tela.
      */
-    obtemValorSalario() {
+    obtemValorSalario: function() {
         return document.getElementById('txtSalario').value
-    }
+    },
 
     /**
      * Prepara o valor para exibição na tela.
@@ -58,9 +58,9 @@ class Visual {
      * @param {number} valor Valor a ser preparado.
      * @return {string} Valor a ser exibido.
      */
-    preparaValorExibicao(valor) {
+    preparaValorExibicao: function(valor) {
         return valor.toString().replace('.', ',')
-    }
+    },
 
     /**
      * Exibe os valores recebidos na tela.
@@ -68,7 +68,7 @@ class Visual {
      * @param {object} valores Objeto com valores a serem exibidos.
      * Espera salario, aliquota e valor.
      */
-    exibeValores(valores) {
+    exibeValores: function(valores) {
         const salario = this.preparaValorExibicao(valores.salario)
         const aliquota = this.preparaValorExibicao(valores.aliquota.toString())
         const aliquotaReal = this.preparaValorExibicao(valores.aliquotaReal.toString())
@@ -85,8 +85,10 @@ class Visual {
             Alíquota Real: ${aliquotaReal}
         `
         elResultado.style.display = 'block'
-    }
+    },
 
 }
 
-new Visual()
+if(typeof process === 'object') {
+    module.exports = Visual
+}

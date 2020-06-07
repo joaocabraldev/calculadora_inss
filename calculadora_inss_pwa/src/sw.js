@@ -1,4 +1,4 @@
-const version = '0.0.7';
+const version = '0.0.8';
 const cacheName = `appcache-${version}`;
 
 self.addEventListener('install', function(e) {
@@ -9,7 +9,9 @@ self.addEventListener('install', function(e) {
           '/calculadora_inss_pwa/favicon.ico',
           '/calculadora_inss_pwa/index.html',
           '/calculadora_inss_pwa/js/app.js',
-          '/calculadora_inss_pwa/js/calculo.js',
+          '/calculadora_inss_pwa/js/inss-antigo.js',
+          '/calculadora_inss_pwa/js/inss-novo.js',
+          '/calculadora_inss_pwa/js/util.js',
           '/calculadora_inss_pwa/js/visual.js',
           '/calculadora_inss_pwa/css/style.css',
           '/calculadora_inss_pwa/css/w3.css',

@@ -1,48 +1,50 @@
 /* global Visual, Calculo */
 
-class App {
+const App = {
 
-    visual = null;
-    calculo = null;
+    visual: null,
+    calculoAntigo: null,
+    calculoNovo: null,
 
     /**
      * Inicializa o aplicativo.
      */
-    constructor() {
+    init: function() {
+        this.visual = Visual
+        this.calculoAntigo = CalculoINSSAntigo
+        this.calculoNovo = CalculoINSSNovo
         this.iniciaServiceWorker()
         this.preparaNavegacao()
         this.inicializaBotaoInstalacao()
         this.preparaInputText()
-        this.visual = new Visual()
-        this.calculo = new Calculo()
-    }
+    },
 
     /**
      * Inicializa o ServiceWorker
      */
-    iniciaServiceWorker() {
+    iniciaServiceWorker: function() {
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js')
                 .catch(() => {
                     console.warn('service worker failed')
                 })
         }
-    }
+    },
 
     /**
      * Prepara os botões de Navegação.
      */
-    preparaNavegacao() {
+    preparaNavegacao: function() {
         const calculoBtn = document.getElementById('calculoBtn')
         calculoBtn.addEventListener('click', this.visual.mostraCalculo)
         const tabelaBtn = document.getElementById('tabelaBtn')
         tabelaBtn.addEventListener('click', this.visual.mostraTabela)
-    }
+    },
 
     /**
      * Inicializa o botão de Instalação.
      */
-    inicializaBotaoInstalacao() {
+    inicializaBotaoInstalacao: function() {
         let deferredPrompt
         const installBtn = document.getElementById('installBtn')
         installBtn.style.display = 'none'
@@ -65,57 +67,57 @@ class App {
                 })
             })
         })
-    }
+    },
 
     /**
      * Prepara o input para receber tecla Enter.
      */
-    preparaInputText() {
+    preparaInputText: function() {
         const txtSalario = document.getElementById('txtSalario')
         txtSalario.addEventListener('keyup', (e) => {
             if (e.key == 'Enter') {
                 this.calcular()
             }
         })
-    }
+    },
 
     /**
      * Realiza o cálculo do INSS.
      * Calcula conforme o tipo de Cálculo.
      */
-    calcular() {
+    calcular: function() {
         const tipoCalculo = this.visual.obtemTipoCalculo()
         if (tipoCalculo == 1) {
             this.calcularAntigo()
         } else {
             this.calcularNovo()
         }
-    }
+    },
 
     /**
      * Realiza o cálculo do INSS conforme cálculo antigo.
      * Tabela Jan e Fev 2020 ou anterior.
      */
-    calcularAntigo() {
+    calcularAntigo: function() {
         const salario = this.visual.obtemValorSalario()
-        const valores = this.calculo.calculaINSS(salario)
+        const valores = this.calculoAntigo.calculaINSS(salario)
 
         if (salario) {
             this.visual.exibeValores(valores)
         }
-    }
+    },
 
     /**
      * Realiza o cálculo do INSS conforme cálculo novo.
      * Tabela Mar 2020 ou posterior.
      */
-    calcularNovo() {
+    calcularNovo: function() {
         const salario = this.visual.obtemValorSalario()
-        const valores = this.calculo.calculaNovoINSS(salario)
+        const valores = this.calculoNovo.calculaINSS(salario)
 
         if (salario) {
             this.visual.exibeValores(valores)
         }
-    }
+    },
 
 }
