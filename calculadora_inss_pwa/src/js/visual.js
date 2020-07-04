@@ -80,11 +80,13 @@ const Visual = {
         const resultado = this.preparaValorExibicao(resultadoTemp)
 
         const elResultado = document.getElementById('resultado')
-        elResultado.innerHTML = `
-            Cálculo: R$${salario} * ${aliquota}% = R$${resultado} <br /><br />
-            Alíquota Real: ${aliquotaReal}
-        `
+        elResultado.innerHTML = `Cálculo: R$${salario} * ${aliquota}% = R$${resultado}`;
+        
+        const elAliquota = document.getElementById('aliquotaReal')
+        elAliquota.innerHTML = `Alíquota Real: ${aliquotaReal}`
+        
         elResultado.style.display = 'block'
+        elAliquota.style.display = 'block'
     },
 
 }
